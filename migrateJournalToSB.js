@@ -37,10 +37,6 @@ databaseRepository
 			}
 
 			const usersFromClerk = await result.json();
-			// for (let user of firebaseUsers.users) {
-
-			// }
-			// console.log(usersFromClerk)
 
 			for (usr of firebaseUsers.users) {
 				const localID = usr.localId;
@@ -56,9 +52,6 @@ databaseRepository
 				const journal = dbJournal[localID];
 
 				if (!!journal?.journal) {
-					// const journalDetails = Object.entries(journal?.journal);
-					// console.log(journalDetails);
-
 					const result = Object.keys(journal.journal).reduce(
 						(res, currentVal) => {
 							res.push({ key: currentVal, value: journal.journal[currentVal] });
@@ -76,8 +69,6 @@ databaseRepository
 							key: usrJournal.key,
 						};
 					});
-
-					// (user_id, title, created_at, emotion_type, entries, overall_entry)
 
 					for (detail of details) {
 						const values = [
